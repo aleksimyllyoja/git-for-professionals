@@ -13,13 +13,12 @@ g = git.cmd.Git(path)
 
 class ProfessionalSystemEventHandler(FileSystemEventHandler):
     def dispatch(self, event):
-
-        g.add("*")
-        g.commit(m="asd")
-        g.push(force=True)
-
-        super(ProfessionalSystemEventHandler, self).dispatch(event)
-
+        try:
+            g.add("*")
+            g.commit(m="asd")
+            g.push(force=True)
+        except:
+            pass
 
 event_handler = ProfessionalSystemEventHandler()
 
